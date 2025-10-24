@@ -1,6 +1,7 @@
 #pragma once
 
 #include <memory>
+#include <mutex>
 
 #include "vec2.hpp"
 
@@ -19,13 +20,14 @@ namespace TTE
     {
         private:
             Vec2<int> pos; // X & Y are relative to the top-left position of the graphic
+            std::mutex MU;
 
         public:
             Element(const int X = 0, const int Y = 0) : pos(X, Y) {}
             Vec2<int> get_position() const { return pos; }
 
-            void set_position(const Vec2<int>& new_pos) { pos.x = new_pos.x; pos.y = new_pos.y; }
-            void set_position(const int new_pos_x, const int new_pos_y) { pos.x = new_pos_x; pos.y = new_pos_y; }
+            void set_position(const Vec2<int>& new_pos) { std::lock_guard<std::mutex> mu(MU); pos.x = new_pos.x; pos.y = new_pos.y; }
+            void set_position(const int new_pos_x, const int new_pos_y) { std::lock_guard<std::mutex> mu(MU); pos.x = new_pos_x; pos.y = new_pos_y; }
     };
 
     class Button : public Element

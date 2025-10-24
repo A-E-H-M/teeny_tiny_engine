@@ -10,6 +10,9 @@ Teeny Tiny Engine a simple, cross-platform 2D game engine written in C++ to simu
 ## State of Development
 Development is in its primary planning phase: conceptualizing API framework, deciding on design standards, and prioritizing feature development. The following sections highlight what you can expect in the days to come.
 
+#### Current Feature Development
+- Input Manager
+
 #### Build From Source
 ##### Requirements: C++20 & CMake 3.25
 

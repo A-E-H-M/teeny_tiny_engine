@@ -1,3 +1,5 @@
+/*  This header file is the first round of ideation for developing the input manager.   */
+
 #pragma once
 
 #include <memory>
