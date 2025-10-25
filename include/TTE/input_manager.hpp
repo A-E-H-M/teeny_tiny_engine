@@ -56,14 +56,14 @@ namespace TTE
             Button(const int button_pos_x, const int button_pos_y, const std::shared_ptr<Command>& command) : Element{ button_pos_x, button_pos_y }, button_command(command) {}
     };
     
-    struct Console_buttons
+    class Console_Buttons
     {
         public:
             const std::map<BUTTONS, std::unique_ptr<Button>>& get_console_button_map() const { return button_map; }
             void add_console_button(const BUTTONS& button) { button_map[button] = std::make_unique<Button>(); } // error handling for already used buttons
     };
 
-    struct GBC_console_buttons : public Console_buttons
+    class GBC_console_buttons : public Console_Buttons
     {
         private:
             std::map<BUTTONS, std::unique_ptr<Button>> button_map;
@@ -95,7 +95,7 @@ namespace TTE
             std::unique_ptr<Command> select_key;
 
         public:
-            void handle_input(const std::unique_ptr<std::queue<BUTTONS>>* input_queue) {}
+            void handle_input(const std::unique_ptr<std::queue<BUTTONS>>& input_queue) {}
     };
 
 }
