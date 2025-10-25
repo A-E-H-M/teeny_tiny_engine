@@ -20,7 +20,6 @@ void t_event_handler(std::unique_ptr<sf::RenderWindow>& main_window)
             {
                 case sf::Event::Closed:
                     main_window = nullptr;
-                    //main_window->close();
                     break;
                 case sf::Event::KeyPressed:
                     std::cout << "Key Pressed\n";
@@ -28,7 +27,6 @@ void t_event_handler(std::unique_ptr<sf::RenderWindow>& main_window)
                         {
                             std::cout << "Key ESC\n";
                             main_window = nullptr;
-                            //main_window->close();
                         }
                     break;
                 case sf::Event::KeyReleased:
@@ -57,8 +55,6 @@ int main()
         window->display();
     }
     
-    window->close();
-
     if (t_Window.joinable())
     {
         t_Window.join();
@@ -68,6 +64,8 @@ int main()
     {
         std::cout << "it didn't work" << std::endl << std::flush;
     }
+
+    window->close();
 
     return 0;
 }
