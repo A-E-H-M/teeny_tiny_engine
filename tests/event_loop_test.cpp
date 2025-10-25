@@ -12,20 +12,23 @@ void t_event_handler(std::unique_ptr<sf::RenderWindow>& main_window)
 {
 
     sf::Event event;
-    while (main_window->isOpen())
+    while (main_window != nullptr)
     {
         while (main_window->pollEvent(event))
         {
             switch (event.type)
             {
                 case sf::Event::Closed:
-                    main_window->close();
+                    main_window = nullptr;
+                    //main_window->close();
                     break;
                 case sf::Event::KeyPressed:
                     std::cout << "Key Pressed\n";
                         if (event.key.code == sf::Keyboard::Escape)
                         {
-                            main_window->close();
+                            std::cout << "Key ESC\n";
+                            main_window = nullptr;
+                            //main_window->close();
                         }
                     break;
                 case sf::Event::KeyReleased:
@@ -48,7 +51,7 @@ int main()
     window->create(sf::VideoMode({800, 600}), "SFML window");
     std::thread t_Window(t_event_handler, std::ref(window));
 
-    while (window->isOpen())
+    while (window != nullptr)
     {
         window->clear();
         window->display();
