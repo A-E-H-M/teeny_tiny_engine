@@ -1,8 +1,8 @@
 #include <iostream>
 #include <thread>
 
-#include "../include/button.hpp"
-#include "../include/vec2.hpp"
+#include "../include/TTE/button.hpp"
+#include "../include/TTE/vec2.hpp"
 
 using namespace TTE;
 
