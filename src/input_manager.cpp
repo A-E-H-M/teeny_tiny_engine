@@ -1,4 +1,4 @@
-#include "input_manager.hpp"
+#include "TTE/input_manager.hpp"
 
 using namespace TTE;
 
