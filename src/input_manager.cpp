@@ -1,3 +1,6 @@
+#include <memory>
+#include <queue>
+
 #include "TTE/input_manager.hpp"
 
 using namespace TTE;

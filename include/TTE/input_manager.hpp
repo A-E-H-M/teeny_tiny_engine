@@ -3,6 +3,8 @@
 #pragma once
 
 #include <memory>
+#include <map>
+#include <queue>
 
 #include "vec2.hpp"
 

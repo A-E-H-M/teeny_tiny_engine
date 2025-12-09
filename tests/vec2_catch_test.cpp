@@ -2,7 +2,7 @@
 #include <catch2/catch_template_test_macros.hpp>
 #include <catch2/catch_approx.hpp>
 
-#include "../include/vec2.hpp"
+#include "vec2.hpp"
 
 using namespace TTE;
 

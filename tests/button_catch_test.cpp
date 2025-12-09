@@ -1,8 +1,8 @@
 #include <catch2/catch_test_macros.hpp>
 #include <catch2/generators/catch_generators.hpp>
 
-#include "../include/TTE/button.hpp"
-#include "../include/TTE/vec2.hpp"
+#include "TTE/button.hpp"
+#include "TTE/vec2.hpp"
 
 using namespace TTE;
 
