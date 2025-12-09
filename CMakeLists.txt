@@ -22,8 +22,7 @@ CPMAddPackage( "gh:SFML/SFML#2.6.x" )
 CPMAddPackage( "gh:nlohmann/json@3.11.3" )
 
 # Add library targets
-add_library( TTE
-	src/input_manager.cpp )
+add_library( TTE )
 target_include_directories( TTE PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include )
 target_link_libraries( TTE PUBLIC sfml-graphics sfml-window sfml-system nlohmann_json::nlohmann_json )
 
