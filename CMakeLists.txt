@@ -5,7 +5,7 @@
 
 cmake_minimum_required ( VERSION 3.14 FATAL_ERROR )
 
-project( Teeny Tiny Engine
+project( TTE
 	VERSION 1.0.0
 	LANGUAGES CXX
 	DESCRIPTION "A 2D Gameboy engine written in C++" )
