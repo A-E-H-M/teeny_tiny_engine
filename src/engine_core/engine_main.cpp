@@ -6,8 +6,9 @@
 
 using namespace TTE;
 
-int main(int argc, char* argv[])
+int main(/*int argc, char* argv[]*/)
 {	
+
     std::cout << "Testing main" << std::endl;
 	return 0;
 }
