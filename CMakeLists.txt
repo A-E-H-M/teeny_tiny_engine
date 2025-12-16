@@ -23,7 +23,7 @@ CPMAddPackage( "gh:nlohmann/json@3.11.3" )
 
 # Add library targets
 add_library( teeny_tiny_engine
-			src/input_manager.cpp )
+			src/engine_core/engine_main.cpp )
 target_include_directories( teeny_tiny_engine PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include )
 target_link_libraries( teeny_tiny_engine PUBLIC sfml-graphics sfml-window sfml-system nlohmann_json::nlohmann_json )
 
