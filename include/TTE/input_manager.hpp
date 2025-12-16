@@ -8,6 +8,7 @@
 
 #include "vec2.hpp"
 
+/*
 namespace TTE
 {
     enum class BUTTONS
@@ -100,4 +101,5 @@ namespace TTE
             void handle_input(const std::unique_ptr<std::queue<BUTTONS>>& input_queue) {}
     };
 
-}
+} // End namespace
+*/

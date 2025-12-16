@@ -44,4 +44,4 @@ namespace TTE
             Button(const int button_pos_x, const int button_pos_y, const std::shared_ptr<Command>& command) : Element{ button_pos_x, button_pos_y }, button_command(command) {}
     };
 
-};
+}; // End namespace

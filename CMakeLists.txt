@@ -5,7 +5,7 @@
 
 cmake_minimum_required ( VERSION 3.14 FATAL_ERROR )
 
-project( TTE
+project( teeny_tiny_engine
 	VERSION 1.0.0
 	LANGUAGES CXX
 	DESCRIPTION "A 2D Gameboy engine written in C++" )
@@ -22,22 +22,22 @@ CPMAddPackage( "gh:SFML/SFML#2.6.x" )
 CPMAddPackage( "gh:nlohmann/json@3.11.3" )
 
 # Add library targets
-add_library( TTE )
-target_include_directories( TTE PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include )
-target_link_libraries( TTE PUBLIC sfml-graphics sfml-window sfml-system nlohmann_json::nlohmann_json )
+add_library( teeny_tiny_engine )
+target_include_directories( teeny_tiny_engine PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include )
+target_link_libraries( teeny_tiny_engine PUBLIC sfml-graphics sfml-window sfml-system nlohmann_json::nlohmann_json )
 
 # Compile features
-target_compile_features( TTE PRIVATE cxx_std_20 )
+target_compile_features( teeny_tiny_engine PRIVATE cxx_std_20 )
 
 # Build with compiler flags and warnings as errors
 if ( ${COMPILER_FLAGS} )
-	set_target_properties( TTE PROPERTIES COMPILE_WARNING_AS_ERROR ON )
+	set_target_properties( teeny_tiny_engine PROPERTIES COMPILE_WARNING_AS_ERROR ON )
 	if (CMAKE_CXX_COMPILER_ID MATCHES "Clang|GNU|AppleClang" )
-			target_compile_options( TTE PRIVATE -Wall -Werror -Wextra -pedantic-errors )
+			target_compile_options( teeny_tiny_engine PRIVATE -Wall -Werror -Wextra -pedantic-errors )
 			# TODO: Add -Wconversion -Wsign-conversion
 	endif ()
 	if ( CMAKE_CXX_COMPILER_ID MATCHES "MSVC" )
-			target_compile_options( TTE PRIVATE /Wall /WL /WX /W4 /wd"4100" )
+			target_compile_options( teeny_tiny_engine PRIVATE /Wall /WL /WX /W4 /wd"4100" )
 	endif ()
 endif ()
 
