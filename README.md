@@ -1,5 +1,6 @@
 <!-- ### Unit Test and Documentation Generation Workflow Status -->
 ![GH Actions Workflow Status](https://img.shields.io/github/last-commit/A-E-H-M/teeny_tiny_engine?style=for-the-badge)
+![GH Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/A-E-H-M/teeny_tiny_engine/CI_build_TTE.yml?style=for-the-badge)
 ![GH Actions Workflow Status](https://img.shields.io/github/license/A-E-H-M/teeny_tiny_engine?style=for-the-badge)
 <!-- ![GH Actions Workflow Status] -->
 <!-- ![GH Tag] -->
