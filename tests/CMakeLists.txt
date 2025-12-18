@@ -6,7 +6,7 @@
 cmake_minimum_required ( VERSION 3.14 FATAL_ERROR )
 
 # Create project
-project ( build_tte_tests
+project ( build_teeny_tiny_engine_tests
 	LANGUAGES CXX
 	DESCRIPTION "Build test suite for teeny tiny engine using Catch2 framework" )
 
@@ -14,7 +14,7 @@ project ( build_tte_tests
 add_executable ( teeny_tiny_engine_tests
 	button_catch_test.cpp
 	vec2_catch_test.cpp
-	#button_test.cpp
+	input_manager_catch_test.cpp
 	#event_loop_test.cpp
 	)
 target_compile_features ( teeny_tiny_engine_tests PRIVATE cxx_std_20 )
