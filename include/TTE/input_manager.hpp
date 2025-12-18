@@ -8,9 +8,17 @@
 
 #include "vec2.hpp"
 
-/*
+
 namespace TTE
 {
+
+    template <typename T>
+    void input(T button)
+    {
+        button.execute_command();
+    };
+
+/*
     enum class BUTTONS
     {
         A_KEY,
@@ -100,6 +108,5 @@ namespace TTE
         public:
             void handle_input(const std::unique_ptr<std::queue<BUTTONS>>& input_queue) {}
     };
-
-} // End namespace
 */
+} // End namespace

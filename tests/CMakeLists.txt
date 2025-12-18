@@ -14,7 +14,7 @@ project ( build_tte_tests
 add_executable ( teeny_tiny_engine_tests
 	button_catch_test.cpp
 	vec2_catch_test.cpp
-	#button_test.cpp
+	button_test.cpp
 	#event_loop_test.cpp
 	)
 target_compile_features ( teeny_tiny_engine_tests PRIVATE cxx_std_20 )

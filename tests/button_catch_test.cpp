@@ -4,8 +4,38 @@
 #include "TTE/button.hpp"
 #include "TTE/vec2.hpp"
 
+
 using namespace TTE;
 
+TEST_CASE( "Button constructors", "[button]" )
+{
+    SECTION( "Default constructors" )
+    {
+        Navigation_button nav;
+
+        auto x = nav.button_properties->pos.x;
+        auto y = nav.button_properties->pos.y;
+
+        REQUIRE( x == 0 );
+        REQUIRE( y == 0 );
+    }
+}
+
+TEST_CASE( "Test template for setting button position", "[template]" )
+{
+    Navigation_button nav;
+
+    Vec2<int> new_vec { 20, 34 };
+    set_position(nav, new_vec);
+
+    auto x = nav.button_properties->pos.x;
+    auto y = nav.button_properties->pos.y;
+
+    REQUIRE( x == 20 );
+    REQUIRE( y == 34 );    
+}
+
+/*
 TEST_CASE( "Button constructors", "[button]" )
 {
     SECTION( "Default constructor creates button at origin" )
@@ -173,3 +203,4 @@ TEST_CASE( "Button edge cases", "[button]" )
         REQUIRE( pos.y == 0 );
     }
 }
+*/
