@@ -6,7 +6,7 @@
 cmake_minimum_required ( VERSION 3.14 FATAL_ERROR )
 
 # Create project
-project ( build_tte_tests
+project ( build_teeny_tiny_engine_tests
 	LANGUAGES CXX
 	DESCRIPTION "Build test suite for teeny tiny engine using Catch2 framework" )
 
