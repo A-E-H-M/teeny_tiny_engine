@@ -4,7 +4,7 @@ name: CMake build Teeny Tiny Engine matrix
 
 on:
   push:
-    branches: [ input_dev ]
+    branches: [ dev ]
 env:
   BUILD_TYPE: Release
 
