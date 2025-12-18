@@ -38,7 +38,10 @@ jobs:
         run: cmake -B test_build ${{matrix.platform.flags}}
 
       - name: Build
-        run: cmake --build test_build --config Release
+        run: cmake --build test_build --config $BUILD_TYPE
+      
+      - name: Run unit test
+        run: cd test_build && ctest -C $BUILD_TYPE
 
 
 
