@@ -57,7 +57,7 @@ user/home/
 To build and run the unit tests, navigate to your `TTE_Build` and use the CMake commands listed below.
 ```
 cmake -D BUILD_TTE_TESTS::BOOL=ON ../teeny_tiny_engine/    // Only test builds generated
-cmake --build .                                            // Builds and runs tests created in prior command
+cmake --build .
 ```
 Within your `TTE_Build` directory, navigate via your CLI or with a file explorer to the `tests` directory to find and run TTE tests.
 
@@ -80,7 +80,7 @@ To build with additional warning compiler flags add the following `-D COMPILER_F
 > Flags can be applied to a regular build and a build with unit tests.
 ```
 cmake -D BUILD_TTE_TESTS::BOOL=ON -D COMPILER_FLAGS::BOOL=ON ../teeny_tiny_engine/     // Test builds generated with compiler flags
-cmake --build .                                                                        // Builds and runs tests with compiler flags created in the prior command
+cmake --build .
 ```
 
 ---
@@ -121,13 +121,10 @@ Your machine should have each of these already installed before you can proceed 
 ### List of Dependencies
 These are only listed for your reference. You will not need to manually install them yourself, rather the CPM.cmake (see below) takes care of downloading the library dependencies with the correct version for you.
 > [!NOTE]
->**SFML**
 >[SFML](https://github.com/SFML/SFML) is a multi-media library used for window, system, and graphics handling.
 >
->**CPM.cmake**
 >[CPM.cmake](https://github.com/cpm-cmake/CPM.cmake) is used for dependency management. The CMake build has been configured to download CPM from its GitHub repository if it is not already installed, along with all other dependencies such as SFML. CPM will extract the correct version for each dependency, unlike the requirements needed for the build.
 >
->**Catch2**
 >[Catch2](https://github.com/catchorg/Catch2) is the framework for writing unit tests.
 ---
 
