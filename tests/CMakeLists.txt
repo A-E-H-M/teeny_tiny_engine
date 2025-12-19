@@ -31,9 +31,9 @@ endforeach()
 
 enable_testing ()
 
-# Running individual tests
+# Registering test
 foreach ( test_TTE_name IN LISTS test_TTE_names )
 	message ( "Creating test: run_${test_TTE_name}" )
 	add_test ( Name run_${test_TTE_name} COMMAND ${test_TTE_name} )
-	set_tests_properties ( run_${test_TTE_name} PROPERTIES PASS_REGULAR_EXPRESSION "All tests passed" )
+	#set_tests_properties ( run_${test_TTE_name} PROPERTIES PASS_REGULAR_EXPRESSION "All tests passed" )
 endforeach()
