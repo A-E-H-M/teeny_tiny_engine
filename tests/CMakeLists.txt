@@ -13,7 +13,7 @@ project ( build_teeny_tiny_engine_tests
 # Add dependencies
 include ( ../cmake/download_cpm.cmake )
 
-CPMAddPackage ( "gh:catchorg/Catch2@3.11.0" )
+CPMAddPackage ( "gh:catchorg/Catch2@3.6.0" )
 
 # Test files names
 set ( test_TTE_names
