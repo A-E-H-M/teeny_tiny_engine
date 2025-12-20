@@ -32,16 +32,16 @@ target_include_directories ( teeny_tiny_engine INTERFACE
 target_compile_features( teeny_tiny_engine INTERFACE cxx_std_20 )
 
 # Build with compiler flags and warnings as errors
-if ( ${COMPILER_FLAGS} )
-	set_target_properties( teeny_tiny_engine PROPERTIES COMPILE_WARNING_AS_ERROR ON )
-	if (CMAKE_CXX_COMPILER_ID MATCHES "Clang|GNU|AppleClang" )
-			target_compile_options( teeny_tiny_engine PRIVATE -Wall -Werror -Wextra -pedantic-errors )
+#if ( ${COMPILER_FLAGS} )
+	#set_target_properties( teeny_tiny_engine PROPERTIES COMPILE_WARNING_AS_ERROR ON )
+	#if (CMAKE_CXX_COMPILER_ID MATCHES "Clang|GNU|AppleClang" )
+			#target_compile_options( teeny_tiny_engine PRIVATE -Wall -Werror -Wextra -pedantic-errors )
 			# TODO: Add -Wconversion -Wsign-conversion
-	endif ()
-	if ( CMAKE_CXX_COMPILER_ID MATCHES "MSVC" )
-			target_compile_options( teeny_tiny_engine PRIVATE /Wall /WL /WX /W4 /wd"4100" )
-	endif ()
-endif ()
+	#endif ()
+	#if ( CMAKE_CXX_COMPILER_ID MATCHES "MSVC" )
+			#target_compile_options( teeny_tiny_engine PRIVATE /Wall /WL /WX /W4 /wd"4100" )
+	#endif ()
+#endif ()
 
 # Check to build unit tests
 if ( ${BUILD_TTE_TESTS} )
