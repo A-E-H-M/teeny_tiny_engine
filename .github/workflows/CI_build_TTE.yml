@@ -38,10 +38,10 @@ jobs:
         run: cmake -B test_build -D BUILD_TTE_TESTS::BOOL=ON ${{matrix.platform.flags}}
 
       - name: Build
-        run: cmake --build test_build --config $BUILD_TYPE
+        run: cmake --build test_build
       
       - name: Run unit test
-        run: cd test_build && ctest -C $BUILD_TYPE
+        run: cd test_build && ctest
 
 
 
