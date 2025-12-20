@@ -41,7 +41,7 @@ jobs:
         run: cmake --build test_build --config $BUILD_TYPE
       
       - name: Run unit test
-        run: cd test_build && ctest -C $BUILD_TYPE
+        run: cd test_build && ctest -C $BUILD_TYPE --output-on-failure
 
 
 
