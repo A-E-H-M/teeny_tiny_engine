@@ -1,5 +1,5 @@
-#include "catch2/catch_test_macros.hpp"
-#include "catch2/generators/catch_generators.hpp"
+#include <catch2/catch_test_macros.hpp>
+#include <catch2/generators/catch_generators.hpp>
 
 #include "TTE/button.hpp"
 #include "TTE/vec2.hpp"
