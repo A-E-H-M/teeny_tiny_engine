@@ -13,7 +13,7 @@ project ( build_teeny_tiny_engine_tests
 # Add dependencies
 include ( ../cmake/download_cpm.cmake )
 
-CPMAddPackage ( "gh:catchorg/Catch2@3.6.0" )
+CPMAddPackage ( "gh:catchorg/Catch2@3.11.0" )
 
 # Test files names
 set ( test_TTE_names
@@ -34,6 +34,6 @@ enable_testing ()
 # Registering test
 foreach ( test_TTE_name IN LISTS test_TTE_names )
 	message ( "Creating test: run_${test_TTE_name}" )
-	add_test ( Name run_${test_TTE_name} COMMAND ${test_TTE_name} )
-	#set_tests_properties ( run_${test_TTE_name} PROPERTIES PASS_REGULAR_EXPRESSION "All tests passed" )
+	add_test ( NAME run_${test_TTE_name} COMMAND ${test_TTE_name} )
+	set_tests_properties ( run_${test_TTE_name} PROPERTIES PASS_REGULAR_EXPRESSION "All tests passed" )
 endforeach()

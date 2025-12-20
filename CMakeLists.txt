@@ -22,15 +22,11 @@ CPMAddPackage( "gh:SFML/SFML#2.6.x" )
 CPMAddPackage( "gh:nlohmann/json@3.11.3" )
 
 # Add library targets
-#add_library( teeny_tiny_engine
-			#src/engine_core/engine_main.cpp )
 add_library ( teeny_tiny_engine INTERFACE )
 add_library ( TTE::teeny_tiny_engine ALIAS teeny_tiny_engine)
 target_include_directories ( teeny_tiny_engine INTERFACE
 	$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
 	$<INSTALL_INTERFACE:include/> )
-#target_include_directories( teeny_tiny_engine PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include )
-#target_link_libraries( teeny_tiny_engine PUBLIC sfml-graphics sfml-window sfml-system nlohmann_json::nlohmann_json )
 
 # Compile features
 target_compile_features( teeny_tiny_engine INTERFACE cxx_std_20 )
@@ -47,15 +43,14 @@ if ( ${COMPILER_FLAGS} )
 	endif ()
 endif ()
 
-# Build game
-if ( ${BUILD_TTE} )
-	add_subdirectory ( build )
-endif ()
-
 # Check to build unit tests
 if ( ${BUILD_TTE_TESTS} )
 	enable_testing ()
 	add_subdirectory ( tests )
 endif ()
 
+# Build game
+if ( ${BUILD_TTE} )
+	add_subdirectory ( build )
+endif ()
 # End of file

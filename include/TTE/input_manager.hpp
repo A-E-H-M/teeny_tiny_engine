@@ -13,9 +13,14 @@ namespace TTE
 {
 
     template <typename T>
-    void input(T button)
+    bool input(T button)
     {
-        button.execute_command();
+        auto button_return = button.execute_command();
+        if(button_return == true)
+        {
+            return true;
+        }
+        return false;
     };
 
 } // End namespace

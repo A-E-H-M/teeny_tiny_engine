@@ -1,6 +1,6 @@
-#include <catch2/catch_test_macros.hpp>
-#include <catch2/catch_template_test_macros.hpp>
-#include <catch2/catch_approx.hpp>
+#include "catch2/catch_test_macros.hpp"
+#include "catch2/catch_template_test_macros.hpp"
+#include "catch2/catch_approx.hpp"
 
 #include "TTE/vec2.hpp"
 
@@ -16,7 +16,7 @@ Vec2<TestType> v1(static_cast<TestType>(2), static_cast<TestType>(3));
 Vec2<TestType> v2(static_cast<TestType>(3), static_cast<TestType>(4));
     
 	SECTION("Basic operations") {
-	// Test addition
+	    // Test addition
 		auto sum = v1 + v2;
         REQUIRE(sum.x == static_cast<TestType>(5));
         REQUIRE(sum.y == static_cast<TestType>(7));

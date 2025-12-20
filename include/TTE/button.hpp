@@ -27,23 +27,23 @@ namespace TTE
         public:
         // Change to unique pointer
             std::shared_ptr<Button_properties> button_properties = std::make_shared<Button_properties>();
-            void execute_command() { std::cout << "Nav" << std::endl; };
+            bool execute_command() { std::cout << "Nav" << std::endl; return true; };
     };
 
     class Select_button
     {
         private:
         public:
-            std::shared_ptr<Button_properties> button_properties {};
-            void execute_command() { std::cout << "Select" << std::endl; };
+            std::shared_ptr<Button_properties> button_properties = std::make_shared<Button_properties>();
+            bool execute_command() { std::cout << "Select" << std::endl; return true; };
     };
 
     class System_button
     {
         private:
         public:
-            std::shared_ptr<Button_properties> button_properties {};
-            void execute_command() { std::cout << "System" << std::endl; };
+            std::shared_ptr<Button_properties> button_properties = std::make_shared<Button_properties>();
+            bool execute_command() { std::cout << "System" << std::endl; return true; };
     };
     
     template <typename T, typename V>

@@ -23,7 +23,7 @@ namespace TTE
 			
 		// Double operator overloads
 		void operator += (const Vec2& rhs) { x += rhs.x; y += rhs.y; }
-		void operator -= (const Vec2& rhs) { x -= rhs.x; y += rhs.y; }
+		void operator -= (const Vec2& rhs) { x -= rhs.x; y -= rhs.y; }
 		void operator *= (const float val) { x *= val; y *= val; }
 		void operator /= (const float val) { x /= val; y /= val; }
 	};
