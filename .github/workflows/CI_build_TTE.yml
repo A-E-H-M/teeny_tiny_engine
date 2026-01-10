@@ -40,12 +40,8 @@ jobs:
       - name: Build
         run: cmake --build test_build --config $BUILD_TYPE
 
-      - name: debug
-        run: echo $PATH
-      
       - name: Run unit test
-        run: cd test_build && ctest -C $BUILD_TYPE --rerun-failed --output-on-failure
-
+        run: cd test_build && ctest -C $BUILD_TYPE
 
 
 
