@@ -31,6 +31,8 @@ target_include_directories ( teeny_tiny_engine INTERFACE
 # Compile features
 target_compile_features( teeny_tiny_engine INTERFACE cxx_std_20 )
 
+# TODO:
+# Uncomment compiler flags if the interface changes, you can not run these with a header only library
 # Build with compiler flags and warnings as errors
 #if ( ${COMPILER_FLAGS} )
 	#set_target_properties( teeny_tiny_engine PROPERTIES COMPILE_WARNING_AS_ERROR ON )

@@ -4,13 +4,16 @@
 #include <vector>
 #include <memory>
 
-#include <SFML/Graphics/RectangleShape.hpp>
+//#include <SFML/Graphics/RectangleShape.hpp>
 
 #include <TTE/vec2.hpp>
+#include <TTE/common.hpp>
 
 namespace TTE 
 {
-    enum class Colors
+    typedef Manager<Create_Policy> Tile_Manager;
+
+    /*enum class Colors
     {
         WHITE,
         LIGHT_GREY,
@@ -62,4 +65,5 @@ namespace TTE
         void update_tile_map(const Tile_map* title_map_ptr);
         void update_tile(const Tile* tile_ptr);
     };
+    */
 } // End namespace

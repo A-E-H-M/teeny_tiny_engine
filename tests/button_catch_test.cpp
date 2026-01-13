@@ -38,7 +38,7 @@ TEST_CASE( "Button constructors", "[navigation_button]" )
         auto system_x = system.button_properties->pos.x;
         auto system_y = system.button_properties->pos.y;
 
-        REQUIRE( system_x== 0 );
+        REQUIRE( system_x == 0 );
         REQUIRE( system_y == 0 );
     }
 
