@@ -27,6 +27,7 @@ add_library ( TTE::teeny_tiny_engine ALIAS teeny_tiny_engine)
 target_include_directories ( teeny_tiny_engine INTERFACE
 	$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
 	$<INSTALL_INTERFACE:include/> )
+target_link_libraries( teeny_tiny_engine INTERFACE sfml-graphics sfml-window sfml-system nlohmann_json::nlohmann_json )
 
 # Compile features
 target_compile_features( teeny_tiny_engine INTERFACE cxx_std_20 )
