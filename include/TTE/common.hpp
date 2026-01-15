@@ -3,6 +3,7 @@
 #include <memory>
 #include <iostream>
 #include <vector>
+#include <functional>
 
 #include "vec2.hpp"
 
@@ -16,26 +17,27 @@ namespace TTE
         element.element_properties->pos.y = new_pos.y;
     }
 
-    template <class T>
-    struct Create_Policy
+    template <typename T>
+    std::unique_ptr<T> create_new()
     {
-        T* create()
-        {
-            return new T;
-        }
-    };
+        return std::make_unique<T>();
+    }
 
-    template <template <class> class Creation_Policy>
-    struct Manager : public Creation_Policy<int>
+    /*
+    template <typename T>
+    void move_to_vec(std::vector<T> t, std::unique_ptr<T> ptr)
     {
-            std::vector<int*> vec;
-            std::vector<char*> vec_2;
+        t.push_back(std::move(ptr));
+    }
+    */
 
-            char* create_entity()
-            {
-                auto entity = Creation_Policy<char>().create();
-                return entity;
-            }
+    template <typename T>
+    struct Manager
+    {
+        std::unique_ptr<T> (*create)() = &create_new<T>;
+        //void (*add_to_manager)(std::vector<T>, std::unique_ptr<T>) = &move_to_vec<T>;
+
+        std::vector<std::unique_ptr<T>> vec;
     };
 
 } // End namespace

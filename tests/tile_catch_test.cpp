@@ -11,14 +11,13 @@ TEST_CASE( "Test template for test template", "[template]" )
 
 
     auto tile = My_Tile_Manager.create();
+    auto tile_2 = My_Tile_Manager.create();
 
-    My_Tile_Manager.vec.push_back(tile);
-    My_Tile_Manager.vec.push_back(tile);
-    My_Tile_Manager.vec.push_back(tile);
+    My_Tile_Manager.vec.push_back(std::move(tile));
+    My_Tile_Manager.vec.push_back(std::move(tile_2));
 
-    auto entity = My_Tile_Manager.create_entity();
-
-    REQUIRE( My_Tile_Manager.vec.size() == 3 );
-
+    REQUIRE( My_Tile_Manager.vec.size() == 2 );
+    REQUIRE( My_Tile_Manager.vec[0]->x == 9 );
+    REQUIRE( My_Tile_Manager.vec[0] != My_Tile_Manager.vec[1] );
 
 }

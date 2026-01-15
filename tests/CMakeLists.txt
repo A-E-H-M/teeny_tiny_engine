@@ -18,7 +18,9 @@ CPMAddPackage ( "gh:catchorg/Catch2@3.6.0" )
 # Test files names
 set ( test_TTE_names
 	button_catch_test
-	input_manager_catch_test
+	#common_catch_test
+	#input_manager_catch_test
+	tile_catch_test
 	vec2_catch_test )
 
 # Add individual executables
@@ -35,13 +37,11 @@ enable_testing ()
 foreach ( test_TTE_name IN LISTS test_TTE_names )
 	message ( "Creating test: run_${test_TTE_name}" )
 	add_test ( NAME run_${test_TTE_name} COMMAND ${test_TTE_name} )
-	if (CMAKE_CXX_COMPILER_ID MATCHES "Clang|GNU|AppleClang" )
+	if ( CMAKE_CXX_COMPILER_ID MATCHES "Clang|GNU|AppleClang" )
 		set_tests_properties ( run_${test_TTE_name} PROPERTIES PASS_REGULAR_EXPRESSION "All tests passed" )
 	endif ()
 	if ( CMAKE_CXX_COMPILER_ID MATCHES "MSVC" )
+		# Environment modification required in test properities for ctest to run tests, otherwise it can not find the tests
 		set_tests_properties ( run_${test_TTE_name} PROPERTIES PASS_REGULAR_EXPRESSION "All tests passed" ENVIRONMENT_MODIFICATION PATH=path_list_append:$<TARGET_RUNTIME_DLL_DIRS:${test_TTE_name}>)
 	endif ()
-	#set_tests_properties ( run_${test_TTE_name} PROPERTIES PASS_REGULAR_EXPRESSION "All tests passed" )
-	# Environment modification required in test properities for ctest to run tests, otherwise it can not find the tests
-	#set_tests_properties ( run_${test_TTE_name} PROPERTIES PASS_REGULAR_EXPRESSION "All tests passed" ENVIRONMENT_MODIFICATION PATH=path_list_append:$<TARGET_RUNTIME_DLL_DIRS:${test_TTE_name}>)
 endforeach()
