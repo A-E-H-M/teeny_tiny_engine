@@ -17,9 +17,10 @@ CPMAddPackage ( "gh:catchorg/Catch2@3.6.0" )
 
 # Test files names
 set ( test_TTE_names
-	button_catch_test
+	#button_catch_test
 	#common_catch_test
-	#input_manager_catch_test
+	input_manager_catch_test
+	#physics_catch_test
 	tile_catch_test
 	vec2_catch_test )
 

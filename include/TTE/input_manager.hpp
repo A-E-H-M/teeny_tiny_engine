@@ -6,11 +6,16 @@
 #include <map>
 #include <queue>
 
-#include "vec2.hpp"
+#include <TTE/vec2.hpp>
+#include <TTE/common.hpp>
+#include <TTE/button.hpp>
 
 
 namespace TTE
 {
+    using Navigation_Buttons = Manager<Navigation_button>;
+    using Select_Buttons = Manager<Select_button>;
+    using System_Buttons= Manager<System_button>;
 
     template <typename T>
     bool input(T button)

@@ -8,11 +8,22 @@ using namespace TTE;
 
 // Rewrite as template test case
 
-TEST_CASE( "Test template for setting button position", "[template]" )
+TEST_CASE( "Template test for creating navigation buttons", "[template]" )
 {
-    Navigation_button nav;
+    Navigation_Buttons nav_buttons;
+    
+    auto button = nav_buttons.create();
+    nav_buttons.vec.push_back(std::move(button));
+    REQUIRE( nav_buttons.vec.size() == 1 );
 
-    auto nav_execute_output = input(nav);
+    auto button_2 = create_new<Navigation_button>();
+    nav_buttons.vec.push_back(std::move(button_2));
+    REQUIRE( nav_buttons.vec.size() == 2 );
+    REQUIRE( nav_buttons.vec[0]->button_properties->pos.x == 0 );
 
-    REQUIRE ( nav_execute_output == true );
+    nav_buttons.vec[0]->button_properties->pos.x = 125;
+    REQUIRE( nav_buttons.vec[0]->button_properties->pos.x == 125 );
+
+    auto nav_execute = input(*nav_buttons.vec[1]);
+    REQUIRE ( nav_execute == true );
 }

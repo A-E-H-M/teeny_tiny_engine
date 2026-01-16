@@ -1,21 +1,12 @@
 #pragma once
 
 #include <memory>
-#include <iostream>
 #include <vector>
-#include <functional>
 
 #include "vec2.hpp"
 
 namespace TTE
 {
-
-    template <class T, typename V>
-    void set_position(T& element, V new_pos)
-    {
-        element.element_properties->pos.x = new_pos.x; 
-        element.element_properties->pos.y = new_pos.y;
-    }
 
     template <typename T>
     std::unique_ptr<T> create_new()
