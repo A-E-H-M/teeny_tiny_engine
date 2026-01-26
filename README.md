@@ -9,12 +9,16 @@
 Teeny Tiny Engine a simple, cross-platform 2D game engine written in C++ to simulate Game Boy Color (CGB) game development. It utilizes C++20 features to emulate CGB Dot Matrix Game (DMG) behavior, but is not a one-to-one build of the Game Boy Toolchain.
 
 ### State of Development
-Development is in its primary planning phase: conceptualizing API framework, deciding on design standards, and prioritizing feature development. The following sections highlight what you can expect in the days to come.
+At this stage, TTE is a header only library. Since there are no source files (.cpp) to compile, CMake has been set to build an interface target. Templates are now being implemented. Tests are being written to accompany new features but full coverage is not yet guaranteed. The entity manager(EM) is the primary subsystem being written, along with facets of other features that will engage with the EM. Additional libraries are being considered for physics and audio.
 
 #### Current Feature Development
-- Button template design
-- Input thread
-- Python script to install system dependencies for linux, or create Flatpak/containerized environment
+- Entity Manager
+- Init configuration with system IO
+- Run-time input handling
+- Troubleshooting CI build path issues specific to Windows OS
+
+## About the Teeny Tiny Engine Project
+This is a natural evolution from my first 2D game Geowars. The goal of this project is to build a 2D game engine that focuses on implementing modern C++ features and best practices while providing unit testing coverage and thorough documentation. While I will end up using third party libraries to handle some of the heavy lifting, this is my opportunity to be an adventurer. I get to build on my understanding of what makes a game engine by programming a C++ library for other developers. Exciting! This also means a first release is not likely to happen soon, but that doesn't mean you can't build and test out what I do have. Rest assured if you have any questions, please feel free to reach out to me. Huzzah.
 
 ---
 
@@ -74,15 +78,18 @@ user/home/
 │   ├── ...
 │   └── tests/  <---This directory
 ```
+The tests have been set to run together, but you can execute them individually.
+
+<!--
 #### Building with Compiler Flags
-To build with additional warning compiler flags add the following `-D COMPILER_FLAGS::BOOL=ON` to the your first command. 
+To build with additional warning compiler flags add the following `-D COMPILER_FLAGS::BOOL=ON` to the your first command.
 > [!TIP]
 > Flags can be applied to a regular build and a build with unit tests.
 ```
 cmake -D BUILD_TTE_TESTS::BOOL=ON -D COMPILER_FLAGS::BOOL=ON ../teeny_tiny_engine/     // Test builds generated with compiler flags
 cmake --build .
 ```
-
+-->
 ---
 
 ### Continuous Integration
@@ -128,5 +135,4 @@ These are only listed for your reference. You will not need to manually install 
 >[Catch2](https://github.com/catchorg/Catch2) is the framework for writing unit tests.
 ---
 
-## About Teeny Tiny Engine
-This is a natural evolution from my first 2D game Geowars. The goal of this project is to build a 2D game engine that focuses on implementing modern C++ features and best practices while providing unit testing coverage and thorough documentation.
+
