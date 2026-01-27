@@ -18,7 +18,7 @@ namespace circular_buffer
 
             bool write(std::string_view string_temp);
             void clear_multiple(int num);
-            bool buffer_slot_empty(const int& temp_index);
+            bool buffer_slot_empty(int temp_index);
             int find_empty(int temp_pos);
         
         public:
@@ -27,10 +27,7 @@ namespace circular_buffer
             void remove(int num_elements);
             void over_ride_response(std::string_view temp_str);
 
-            Buffer(int num) : size(num) 
-            {
-                Darray = std::make_shared<std::vector<std::string>>(size);
-            }
+            Buffer(int num) : size(num), Darray(std::make_shared<std::vector<std::string>>(size)) {};
 
     };
 } // end of namespace

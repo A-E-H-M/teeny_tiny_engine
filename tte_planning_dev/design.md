@@ -15,6 +15,9 @@ The purpose of the editor engine is to encapsulate the engine core while creatin
 3) Editor Application
 The editor application will be a GUI that utilizes the editor engine and implements the SFML library for graphics. As an example, developers will be able to create and edit tilemaps using drop down menus and color palettes in the editor application. They will not need to directly interact with the engine core or editor core library.
 
+#### Paradigms in Mind
+Two paradigms that support my design architecture are object-oriented & functional programming. Test-driven development(TDD) and generic programming (templates) also are used in my approach. Using these as guides I push my ability to see code from a higher view point. My design is not purely built on paradigm or approach because I want to explore them.
+
 #### Entity Manager (EM)
 ##### Why start with EM?
 Even though some highly proformant entity management libraries already exist, I want to make this a large part of my project. It's what first drew me to the idea of my own engine. The current challenge for me is to over engineer and scope creep. I am constantly thinking "What should a game developer need to do?" and "Where is the line between my library's responsibility and the developers?" As an example:

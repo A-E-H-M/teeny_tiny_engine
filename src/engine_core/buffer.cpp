@@ -86,7 +86,7 @@ namespace circular_buffer
         return -1;
     }
 
-    bool Buffer::buffer_slot_empty(const int& temp_index)
+    bool Buffer::buffer_slot_empty(int temp_index)
     {
         auto temp_value = (*Darray)[temp_index];
         if (temp_value == "")
