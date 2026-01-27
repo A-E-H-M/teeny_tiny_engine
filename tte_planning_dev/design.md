@@ -25,11 +25,9 @@ Even though some highly proformant entity management libraries already exist, I 
 
 As you noticed, I started out writing about the EM and ended up with configuration and related I/O, but all those questions stemmed from thinking about designing the EM. I've had similar thoughts related to other systems, so it only makes sense to focus on what connects smaller facets to the larger game engine. If I was into audio then I'd imagine that's where I would start. For me, its the EM.
 
-##### Current EM Design Related Thoughts
-How my brain works:
+##### EM Design Thoughts (my brain in engineering mode)
 ![brainstorming_EM](/tte_planning_dev/photos_images/EM_Brain_Dump.jpg)
-
-A couple key points came out of this exercise:
+##### Key points for those who prefer lists
 - A developer should be able to have multiple configuration files (we will start with two files of the same file format (<JSON>))
    - Components configuration file: Keys->Categories, Values->Data member arrays
    - Entity configuration file: (Keys->Entities, Value->Component types), (Key->Components, Value->Data values)

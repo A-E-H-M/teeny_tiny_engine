@@ -16,6 +16,7 @@ At this stage, TTE is a header only library. Since there are no source files (.c
 - Init configuration with system IO
 - Run-time input handling
 - Troubleshooting CI build path issues specific to Windows OS
+- More visual aids
 
 ## About the Teeny Tiny Engine Project
 This is a natural evolution from my first 2D game Geowars. The goal of this project is to build a 2D game engine that focuses on implementing modern C++ features and best practices while providing unit testing coverage and thorough documentation. While I will end up using third party libraries to handle some of the heavy lifting, this is my opportunity to be an adventurer. I get to build on my understanding of what makes a game engine by programming a C++ library for other developers. Exciting! This also means a first release is not likely to happen soon, but that doesn't mean you can't build and test out what I do have. Rest assured if you have any questions, please feel free to reach out to me. Huzzah.
