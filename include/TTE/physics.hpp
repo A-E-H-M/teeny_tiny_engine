@@ -8,23 +8,16 @@
 namespace TTE
 {
 
-    template <typename T, typename V>
-    Vec2<V> get_position(std::unique_ptr<T>& element)
+    template <typename T>
+    const auto get_position(const T& element)
     {
         return element->pos;
     }
 
     template <typename T, typename V>
-    void set_position(std::unique_ptr<T>& element_ptr , Vec2<V> new_pos)
+    const auto set_position(const T& element_ptr, const V new_pos)
     {
-        element_ptr->pos += new_pos;
-    }
-
-    template <typename T, typename V>
-    Vec2<V> get_updated_position(std::unique_ptr<T>& element, Vec2<V> new_pos)
-    {
-        new_pos += element->pos;
-        return new_pos;
+        return element_ptr->pos += new_pos;
     }
 
 } // End of namespace
