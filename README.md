@@ -8,6 +8,7 @@
 ## Teeny Tiny Engine (TTE)
 Teeny Tiny Engine a simple, cross-platform 2D game engine written in C++ to simulate Game Boy Color (CGB) game development. It utilizes C++20 features to emulate CGB Dot Matrix Game (DMG) behavior, but is not a one-to-one build of the Game Boy Toolchain.
 
+
 ### State of Development
 At this stage, TTE is a header only library. Since there are no source files (.cpp) to compile, CMake has been set to build an interface target. Templates are now being implemented. Tests are being written to accompany new features but full coverage is not yet guaranteed. The entity manager(EM) is the primary subsystem being written, along with facets of other features that will engage with the EM. Additional libraries are being considered for physics and audio.
 
