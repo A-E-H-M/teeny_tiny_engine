@@ -2,15 +2,10 @@
 #include <string>
 #include "buffer.hpp"
 
-namespace circular_buffer
+namespace r_buffer
 {
 
-    bool Buffer::add(std::string_view temp_str)
-    { 
-        return write(temp_str);
-    }
-
-    void Buffer::clear_multiple(int num)
+    void Ring_buffer::pop_range(int num)
     {
         if (num > size)
         {
@@ -29,22 +24,22 @@ namespace circular_buffer
         counter = last_pos;
     }
 
-    std::string Buffer::read(int index)
+    std::string Ring_buffer::at(int index)
     {
         return (*Darray)[index];
     }
 
-    void Buffer::remove(int num_elements)
+    void Ring_buffer::pop_back(int num_elements)
     {
-        clear_multiple(num_elements); 
+        pop_range(num_elements); 
     }
 
-    bool Buffer::write(std::string_view string_temp) 
+    bool Ring_buffer::append(std::string_view string_temp) 
     {
         auto temp = counter % size;
-        int empty{0};
+        int temp_empty{0};
 
-        if (buffer_slot_empty(temp))
+        if (erase(temp))
         {
             (*Darray)[temp] = string_temp;
             last_pos = counter;
@@ -54,13 +49,13 @@ namespace circular_buffer
         else
         {
             //temp = counter % size;
-            empty = find_empty(temp);
-            if (empty > 0)
+            temp_empty = find_empty(temp);
+            if (temp_empty > 0)
             {
-                (*Darray)[empty] = string_temp;
+                (*Darray)[temp_empty] = string_temp;
                 last_pos = counter;
                 //counter++;
-                counter = empty;
+                counter = temp_empty;
                 return true;
             }
             return false;
@@ -68,13 +63,13 @@ namespace circular_buffer
 
     }
 
-    int Buffer::find_empty(int temp_pos)
+    int Ring_buffer::find_empty(int temp_pos)
     {
         std::string temp_string;
-        for (auto i = 0; i > size; i++)
+        for (auto i = 0; i > size; ++i)
         {
             //(*Darray)[temp_pos] = temp_string;
-            if (buffer_slot_empty(temp_pos))
+            if (erase(temp_pos))
                 return temp_pos;
             else
             {
@@ -86,7 +81,7 @@ namespace circular_buffer
         return -1;
     }
 
-    bool Buffer::buffer_slot_empty(int temp_index)
+    bool Ring_buffer::erase(int temp_index)
     {
         auto temp_value = (*Darray)[temp_index];
         if (temp_value == "")
@@ -99,10 +94,10 @@ namespace circular_buffer
         }
     }
 
-    void Buffer::over_ride_response(std::string_view temp_str_view)
+    void Ring_buffer::assign(std::string_view temp_str_view)
     {
         auto over_ride_pos = counter % size;
         (*Darray)[over_ride_pos] = "";
-        write(temp_str_view);
+        append(temp_str_view);
     }
 } // end of namespace

@@ -4,9 +4,9 @@
 #include <memory>
 #include <vector>
 
-namespace circular_buffer
+namespace r_buffer
 {
-    class Buffer
+    class Ring_buffer
     {
         private:
             int size;
@@ -15,19 +15,26 @@ namespace circular_buffer
 
             int counter{0};
             int last_pos{0};
-
-            bool write(std::string_view string_temp);
-            void clear_multiple(int num);
-            bool buffer_slot_empty(int temp_index);
-            int find_empty(int temp_pos);
         
         public:
-            std::string read(int index);
-            bool add(std::string_view temp_str);
-            void remove(int num_elements);
-            void over_ride_response(std::string_view temp_str);
 
-            Buffer(int num) : size(num), Darray(std::make_shared<std::vector<std::string>>(size)) {};
+            // element access function
+            int find_empty(int temp_pos);
+            // element access function
+            std::string at(int index);
+
+            // modifier function
+            void pop_range(int num);
+            // modifier function
+            bool erase(int temp_index);
+            // modifier function
+            bool append(std::string_view temp_str);
+            // modifier function
+            void pop_back(int num_elements);
+            // modifier function
+            void assign(std::string_view temp_str);
+
+            Ring_buffer(int num) : size(num), Darray(std::make_shared<std::vector<std::string>>(size)) {};
 
     };
 } // end of namespace
