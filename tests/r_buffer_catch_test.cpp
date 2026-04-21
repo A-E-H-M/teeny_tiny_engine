@@ -8,7 +8,7 @@ using namespace R_BUFFER;
 TEST_CASE( "Test template for ring buffer", "[ring_buffer template]" )
 {
     Ring_buffer<int, 3> int_buffer;
-/*
+
     REQUIRE (int_buffer.size_of() == 3);
 
     SECTION ("Modification using appending")
@@ -100,6 +100,5 @@ TEST_CASE( "Test template for ring buffer", "[ring_buffer template]" )
         REQUIRE ( int_buffer.end() == 37 );
         int_buffer.append(0);
     }
-    */
 
 }
