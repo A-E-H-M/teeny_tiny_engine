@@ -1,9 +1,6 @@
 #include <catch2/catch_test_macros.hpp>
 #include <catch2/generators/catch_generators.hpp>
 
-#include <stdexcept>
-#include <iostream>
-
 #include "TTE/r_buffer.hpp"
 
 using namespace R_BUFFER;
@@ -46,7 +43,7 @@ TEST_CASE( "Test template for ring buffer", "[ring_buffer template]" )
         REQUIRE ( int_buffer.at(0) == 489 );
         
     }
-    
+
 	/*
     SECTION ("Modification by clearing buffer")
     {

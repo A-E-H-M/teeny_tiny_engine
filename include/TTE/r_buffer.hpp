@@ -65,8 +65,8 @@ namespace R_BUFFER
             // modifier function
             void assign(std::size_t index, const T& element)
             {
-                assert (index <= Darray.size());
-                assert (index >= 0);
+                assert (index <= Darray.size() && "Index outside of bounds");
+                assert (index >= 0 && "Index must be positive value");
                 Darray[index] = element;
             }
 
