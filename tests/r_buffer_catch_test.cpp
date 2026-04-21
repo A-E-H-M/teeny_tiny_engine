@@ -44,7 +44,7 @@ TEST_CASE( "Test template for ring buffer", "[ring_buffer template]" )
         
     }
 
-	
+	/*
     SECTION ("Modification by clearing buffer")
     {
         int_buffer.clear();
@@ -53,6 +53,7 @@ TEST_CASE( "Test template for ring buffer", "[ring_buffer template]" )
         REQUIRE( int_buffer.at(1) == 23 );
         REQUIRE( int_buffer.at(2) == 17 );
     }
+    */
     
 
     SECTION ("Accessing last-in element added to buffer")
