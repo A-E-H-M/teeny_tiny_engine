@@ -80,6 +80,7 @@ TEST_CASE( "Test template for ring buffer", "[ring_buffer template]" )
 
     }
 
+    /*
     SECTION ("Accessing first-in element added to buffer")
     {
         // Using append to modify buffer before accessing first-in element
@@ -101,5 +102,6 @@ TEST_CASE( "Test template for ring buffer", "[ring_buffer template]" )
         REQUIRE ( int_buffer.end() == 37 );
         int_buffer.append(0);
     }
+    */
 
 }

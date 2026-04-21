@@ -20,12 +20,14 @@ namespace R_BUFFER
             std::size_t last_pos{0};
         
         public:
+            /*
             // element access function, returns the oldest element appended to the buffer, read only
             const T end()
             {
                 auto temp_end = (last_pos + Darray.size()) % Darray.size();
                 return Darray[temp_end];
             }
+            */
 
             // element access function, returns the latest element appended to the buffer, read only
             const T last()
