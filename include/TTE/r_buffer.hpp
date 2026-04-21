@@ -1,6 +1,6 @@
 #pragma once
 
-#include <cassert>
+//#include <cassert>
 #include <array>
 
 /*
@@ -37,8 +37,8 @@ namespace R_BUFFER
             // element access function, read only
             const T at(std::size_t index)
             {
-                assert (index <= Darray.size());
-                assert (index >= 0);
+                //assert (index <= Darray.size());
+                //assert (index >= 0);
 
                 return Darray[index];
             }
@@ -49,11 +49,13 @@ namespace R_BUFFER
                 return Darray.size();
             };
 
+            /*
             // modifier function, clears the contents of the buffer
             void clear()
             {
                 Darray.clear();
             }
+            */
 
             // modifier function, adds element to the next index space
             void append(const T& element)
@@ -65,8 +67,8 @@ namespace R_BUFFER
             // modifier function
             void assign(std::size_t index, const T& element)
             {
-                assert (index <= Darray.size() && "Index outside of bounds");
-                assert (index >= 0 && "Index must be positive value");
+                //assert (index <= Darray.size() && "Index outside of bounds");
+                //assert (index >= 0 && "Index must be positive value");
                 Darray[index] = element;
             }
 
