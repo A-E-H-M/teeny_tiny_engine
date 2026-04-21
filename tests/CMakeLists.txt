@@ -21,6 +21,7 @@ set ( test_TTE_names
 	#common_catch_test
 	input_manager_catch_test
 	#physics_catch_test
+	r_buffer_catch_test
 	tile_catch_test
 	vec2_catch_test )
 
