@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include <memory>
+#include <array>
 
 #include <SFML/Graphics.hpp>
 
@@ -30,7 +31,7 @@ namespace TTE
         
     };
 
-/*  enum class Colors
+    enum class Colors
     {
         WHITE,
         LIGHT_GREY,
@@ -38,6 +39,7 @@ namespace TTE
         BLACK
     };
 
+    /*
     // Represents an 8 x 8 block of pixels
     class Tile
     {
@@ -53,6 +55,8 @@ namespace TTE
         }
 
     };
+
+    template
 
     // Represents a map of all tiles
     class Tile_map

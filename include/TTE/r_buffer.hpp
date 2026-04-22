@@ -9,12 +9,12 @@
 
 namespace R_BUFFER
 {
-    template <typename T, std::size_t size>
+    template <typename T, std::size_t SZ>
     class Ring_buffer
     {
         private:
             //const std::size_t size;
-            std::array<T, size> Darray;
+            std::array<T, SZ> Darray;
 
             //std::size_t counter{0};
             std::size_t last_pos{0};
@@ -60,9 +60,9 @@ namespace R_BUFFER
             */
 
             // modifier function, adds element to the next index space
-            void append(const T& element)
+            void add(const T& element)
             {
-                Darray[last_pos % size] = element;
+                Darray[last_pos % Darray.size()] = element;
                 ++last_pos;
             }
 

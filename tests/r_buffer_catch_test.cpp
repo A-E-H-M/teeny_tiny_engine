@@ -11,21 +11,21 @@ TEST_CASE( "Test template for ring buffer", "[ring_buffer template]" )
 
     REQUIRE (int_buffer.size_of() == 3);
 
-    SECTION ("Modification using appending")
+    SECTION ("Modification using adding")
     {
-        // Appending to the limit of the buffer without wrapping
-        int_buffer.append(5);
-        int_buffer.append(23);
-        int_buffer.append(17);
+        // adding to the limit of the buffer without wrapping
+        int_buffer.add(5);
+        int_buffer.add(23);
+        int_buffer.add(17);
 
         REQUIRE( int_buffer.at(0) == 5 );
         REQUIRE( int_buffer.at(1) == 23 );
         REQUIRE( int_buffer.at(2) == 17 );
 
-        // Appending with wrapping
-        int_buffer.append(10);
-        int_buffer.append(63);
-        int_buffer.append(5623);
+        // adding with wrapping
+        int_buffer.add(10);
+        int_buffer.add(63);
+        int_buffer.add(5623);
 
         REQUIRE ( int_buffer.at(0) == 10 );
         REQUIRE ( int_buffer.at(1) == 63 );
@@ -58,24 +58,24 @@ TEST_CASE( "Test template for ring buffer", "[ring_buffer template]" )
 
     SECTION ("Accessing last-in element added to buffer")
     {
-        // Using append to modify buffer before accessing last-in element
-        int_buffer.append(70);
+        // Using add to modify buffer before accessing last-in element
+        int_buffer.add(70);
         REQUIRE ( int_buffer.last() == 70 );
 
-        int_buffer.append(4953);
+        int_buffer.add(4953);
         REQUIRE ( int_buffer.last() == 4953 );
 
-        int_buffer.append(456);
+        int_buffer.add(456);
         REQUIRE ( int_buffer.last() == 456 );
         
-        // Appending all buffer elements with value 0
-        int_buffer.append(0);
+        // adding all buffer elements with value 0
+        int_buffer.add(0);
         REQUIRE ( int_buffer.last() == 0 );
 
-        int_buffer.append(0);
+        int_buffer.add(0);
         REQUIRE ( int_buffer.last() == 0 );
 
-        int_buffer.append(0);
+        int_buffer.add(0);
         REQUIRE ( int_buffer.last() == 0 );
 
     }
@@ -83,24 +83,24 @@ TEST_CASE( "Test template for ring buffer", "[ring_buffer template]" )
     /*
     SECTION ("Accessing first-in element added to buffer")
     {
-        // Using append to modify buffer before accessing first-in element
+        // Using add to modify buffer before accessing first-in element
         REQUIRE ( int_buffer.end() == 0 );
-        int_buffer.append(70);
+        int_buffer.add(70);
         
         REQUIRE ( int_buffer.end() == 0 );
-        int_buffer.append(4953);
+        int_buffer.add(4953);
 
         REQUIRE ( int_buffer.end() == 0 );
-        int_buffer.append(37);
+        int_buffer.add(37);
 
         REQUIRE ( int_buffer.end() == 70 );
-        int_buffer.append(0);
+        int_buffer.add(0);
 
         REQUIRE ( int_buffer.end() == 4953 );
-        int_buffer.append(0);
+        int_buffer.add(0);
 
         REQUIRE ( int_buffer.end() == 37 );
-        int_buffer.append(0);
+        int_buffer.add(0);
     }
     */
 

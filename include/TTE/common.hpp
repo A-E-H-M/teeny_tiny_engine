@@ -2,6 +2,7 @@
 
 #include <memory>
 #include <vector>
+#include <array>
 
 #include "vec2.hpp"
 
@@ -21,6 +22,19 @@ namespace TTE
         t.push_back(std::move(ptr));
     }
     */
+
+    template <typename T>
+    std::vector<std::unique_ptr<std::vector<T>>> create_matrix()
+    {
+        std::vector<std::unique_ptr<std::vector<T>>> matrix;
+
+        for (int i = 0; i < 8; ++i)
+        {
+            matrix.push_back(std::make_unique<std::vector<T>>());
+        }
+
+        return matrix;
+    }
 
     template <typename T>
     struct Manager
