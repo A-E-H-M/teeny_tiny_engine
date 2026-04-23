@@ -1,4 +1,4 @@
-# Copyright (c) 2025 by Alexandria Hernandez Mann
+# Copyright (c) 2026 by Alexandria Hernandez Mann
 #
 # Distributed under the Boost Software License, Version 1.0.
 # (See accompanying file LICENSE.txt or copy at https://www.boost.org/LICENSE_1_0.txt)
@@ -14,7 +14,7 @@ project ( build_teeny_tiny_engine_tests
 include ( ../cmake/download_cpm.cmake )
 
 CPMAddPackage ( "gh:catchorg/Catch2@3.6.0" )
-CPMAddPackage( "gh:SFML/SFML#2.6.x" )
+#CPMAddPackage( "gh:SFML/SFML#2.6.x" )
 
 # Test files names
 set ( test_TTE_names
@@ -49,3 +49,5 @@ foreach ( test_TTE_name IN LISTS test_TTE_names )
 		set_tests_properties ( run_${test_TTE_name} PROPERTIES PASS_REGULAR_EXPRESSION "All tests passed" ENVIRONMENT_MODIFICATION PATH=path_list_append:$<TARGET_RUNTIME_DLL_DIRS:${test_TTE_name}> )
 	endif ()
 endforeach()
+
+#End of file

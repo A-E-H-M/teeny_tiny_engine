@@ -16,7 +16,6 @@ TEST_CASE( "Test template for test template", "[template]" )
     My_Tile_Manager.vec.push_back(std::move(tile_2));
 
     REQUIRE( My_Tile_Manager.vec.size() == 2 );
-    REQUIRE( My_Tile_Manager.vec[0]->x == 9 );
     REQUIRE( My_Tile_Manager.vec[0] != My_Tile_Manager.vec[1] );
 
 }

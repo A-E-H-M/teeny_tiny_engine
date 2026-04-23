@@ -3,7 +3,7 @@
 #include <memory>
 #include <vector>
 
-#include "vec2.hpp"
+#include <TTE/vec2.hpp>
 
 namespace TTE
 {

@@ -1,4 +1,4 @@
-# Copyright (c) 2025 Alexandria Hernandez Mann
+# Copyright (c) 2026 Alexandria Hernandez Mann
 #
 # Distributed under the Boost Software License, Version 1.0
 # (See accompanying file LICENSE.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
@@ -12,6 +12,7 @@ project( teeny_tiny_engine
 
 # Optional flags
 option( BUILD_TTE "Build engine executable" OFF )
+option( BUILD_TTE_PLAYGROUND "Build playground" OFF )
 option( BUILD_TTE_TESTS "Build unit tests" OFF )
 option( COMPILER_FLAGS "Build with compiler flags" OFF )
 
@@ -55,5 +56,10 @@ endif ()
 # Build TTE Engine
 if ( ${BUILD_TTE} )
 	add_subdirectory ( build )
+endif ()
+
+# Build Playground
+if ( ${BUILD_TTE_PLAYGROUND} )
+	add_subdirectory ( playground )
 endif ()
 # End of file
