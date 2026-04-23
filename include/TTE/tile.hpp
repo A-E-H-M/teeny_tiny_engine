@@ -19,8 +19,6 @@ namespace TTE
         sf::RectangleShape tiny_box;
         sf::Color color;
 
-        int x {9};
-
         Tiny_box(){};
         
         Tiny_box(std::uint8_t red, std::uint8_t green, std::uint8_t blue, std::uint8_t alpha) 

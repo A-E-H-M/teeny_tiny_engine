@@ -4,7 +4,7 @@
 #include <vector>
 #include <array>
 
-#include "vec2.hpp"
+#include <TTE/vec2.hpp>
 
 namespace TTE
 {
@@ -23,14 +23,18 @@ namespace TTE
     }
     */
 
-    template <typename T>
-    std::vector<std::unique_ptr<std::vector<T>>> create_matrix()
+    // Concept to be enforce is the type has to have a default constructor with no parameters
+    // template parameter T is for the type you would like to create a matrix of
+    // template parameter SZ is for the size of a 2D matrix (8 x 8)
+    template <typename T, std::size_t SZ>
+    std::vector<std::unique_ptr<std::vector<T>>> create_matrix_square()
     {
         std::vector<std::unique_ptr<std::vector<T>>> matrix;
 
-        for (int i = 0; i < 8; ++i)
+        for (int i = 0; i < SZ; ++i)
         {
-            matrix.push_back(std::make_unique<std::vector<T>>());
+            std::vector<T> temp(SZ);
+            matrix.push_back(std::make_unique<std::vector<T>>(temp));
         }
 
         return matrix;

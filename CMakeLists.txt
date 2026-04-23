@@ -52,7 +52,7 @@ if ( ${BUILD_TTE_TESTS} )
 	add_subdirectory ( tests )
 endif ()
 
-# Build game
+# Build TTE Engine
 if ( ${BUILD_TTE} )
 	add_subdirectory ( build )
 endif ()

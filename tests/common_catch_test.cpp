@@ -7,8 +7,9 @@
 
 using namespace TTE;
 
-TEST_CASE( "Test template for common templates", "[template]" )
+TEST_CASE( "Tests common templates", "[template]" )
 {
-    auto test = create_matrix<Tiny_box>();
-    REQUIRE ( test.size() == 8 );
+    auto test_matrix_square = create_matrix_square<Tiny_box, 8>();
+    REQUIRE ( test_matrix_square.size() == 8 );
+    REQUIRE ( test_matrix_square[0]->at(0).x == 9 );
 }
