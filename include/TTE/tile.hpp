@@ -37,25 +37,23 @@ namespace TTE
         BLACK
     };
 
-    /*
+    static int Tile_ID;
+
     // Represents an 8 x 8 block of pixels
-    class Tile
+    struct Tile
     {
-        std::vector<Tiny_box> tile_row;
+        std::vector<std::unique_ptr<std::vector<Tiny_box>>> tile;
+        Vec2<float> pos{0, 0};
+        int tile_id = Tile_ID;
 
-        int Tile_ID;
-        Tile() :
+        Tile()
         {
-            for (int 0 = i; i < 8; i++)
-            {
-                tile_row.push(new Tiny_box);
-            }
+            tile = create_matrix<Tiny_box, std::size_t>(8, 8);
+            ++Tile_ID;
         }
-
     };
 
-    template
-
+    /*
     // Represents a map of all tiles
     class Tile_map
     {

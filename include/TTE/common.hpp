@@ -23,18 +23,37 @@ namespace TTE
     }
     */
 
+    /* Generates a grid of type T using a map with both length and width as paramaters.
+    * The map starts at the top left, continues right, then goes down, then proceeds left again.
+    */
+   /*
+    template <typename T, typename SZ>
+    std::map<std::unique_ptr<T>> create_spatial_grid(SZ length, SZ width, SZ spatial_dif_x, SZ spatial_dif_y)
+    {
+        std::map<std::unique_ptr<T>> temp_map;
+
+        for (int i = 0; i < length; ++i)
+        {
+            std::vector<T> temp(width);
+            matrix.push_back(std::make_unique<std::vector<T>>(temp));
+        }
+
+        return matrix;
+    }
+    */
+
     // Concept to be enforce is the type has to have a default constructor with no parameters
     // template parameter T is for the type you would like to create a matrix of
     // template parameter SZ is for the size of a 2D matrix (8 x 8)
-    template <typename T, std::size_t SZ>
-    std::vector<std::unique_ptr<std::vector<T>>> create_matrix_square()
+    template <typename T, typename SZ>
+    std::vector<std::unique_ptr<std::vector<T>>> create_matrix(SZ length, SZ width)
     {
         std::vector<std::unique_ptr<std::vector<T>>> matrix;
 
-        for (int i = 0; i < SZ; ++i)
+        for (int i = 0; i < length; ++i)
         {
-            std::vector<T> temp(SZ);
-            matrix.push_back(std::make_unique<std::vector<T>>(temp));
+            std::vector<T> temp_matrix(width);
+            matrix.push_back(std::make_unique<std::vector<T>>(temp_matrix));
         }
 
         return matrix;

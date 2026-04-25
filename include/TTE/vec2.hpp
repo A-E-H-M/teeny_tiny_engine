@@ -9,6 +9,7 @@ namespace TTE
 		T x{};
 		T y{};
 
+		Vec2(){}
 		Vec2(T a, T b) : x(a), y(b) {}
 
 		// Single operator overloads

@@ -8,7 +8,7 @@ using namespace TTE;
 
 TEST_CASE( "Tests common templates", "[template]" )
 {
-    auto test_matrix_square = create_matrix_square<Tiny_box, 8>();
+    auto test_matrix_square = create_matrix<Tiny_box, std::size_t>(8, 8);
     REQUIRE ( test_matrix_square.size() == 8 );
 
 }

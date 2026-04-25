@@ -1,7 +1,7 @@
-
 #include <memory>
 #include <vector>
 #include <array>
+#include <iostream>
 
 #include <TTE/tile.hpp>
 #include <TTE/vec2.hpp>
@@ -11,10 +11,55 @@ using namespace TTE;
 
 int main ()
 {
-    sf::RenderWindow window(sf::VideoMode({800, 600}), "My window");
+    std::map<int, std::unique_ptr<Tile>> tile_map;
 
+    // Grid of Vec2 based on 800 X 720 screen size with 40 unit spatial difference
+    auto viewport = create_matrix<Vec2<std::size_t>>(20, 18);
+    int map_count = 0;
 
-    // run the program as long as the window is open
+    std::size_t spatial_diff_x = 40;
+    std::size_t spatial_diff_y = 40;
+
+    std::size_t temp_spatial_diff_x = 0;
+    std::size_t temp_spatial_diff_y = 0;
+
+    for (std::size_t i = 0; i < 20; ++i)
+    {
+        temp_spatial_diff_y += spatial_diff_y;
+
+        for (std::size_t a = 0; a < 18; ++a)
+        {
+            temp_spatial_diff_x += spatial_diff_x;
+            
+            viewport[i]->at(a).x = temp_spatial_diff_x;
+            viewport[i]->at(a).y = temp_spatial_diff_y;
+            
+            auto temp_tile = std::make_unique<Tile>();
+            temp_tile->pos.x = temp_spatial_diff_x;
+            temp_tile->pos.y = temp_spatial_diff_y;
+            int temp_ID = temp_tile->tile_id;
+            tile_map[temp_tile->tile_id] = std::move(temp_tile);
+
+            //std::cout << "Tile ID: " << temp_ID << "  " << tile_map[temp_ID]->pos.x << '\n';
+
+            tile_map[temp_ID]->tile[0]->at(0).tiny_box.setPosition(temp_spatial_diff_x, temp_spatial_diff_y);
+            tile_map[temp_ID]->tile[0]->at(0).tiny_box.setSize({5.f, 5.f});
+            tile_map[temp_ID]->tile[0]->at(0).tiny_box.setFillColor(sf::Color(70, 159, 50));
+
+            tile_map[temp_ID]->tile[0]->at(1).tiny_box.setPosition(temp_spatial_diff_x+5, temp_spatial_diff_y);
+            tile_map[temp_ID]->tile[0]->at(1).tiny_box.setSize({5.f, 5.f});
+            tile_map[temp_ID]->tile[0]->at(1).tiny_box.setFillColor(sf::Color(200, 75, 130));
+
+            tile_map[temp_ID]->tile[1]->at(1).tiny_box.setPosition(temp_spatial_diff_x, temp_spatial_diff_y+5);
+            tile_map[temp_ID]->tile[1]->at(1).tiny_box.setSize({5.f, 5.f});
+            tile_map[temp_ID]->tile[1]->at(1).tiny_box.setFillColor(sf::Color(20, 10, 180));
+        }
+        temp_spatial_diff_x = 0;
+    }
+
+    sf::RenderWindow window(sf::VideoMode({720, 800}), "My window");
+
+    // Run the program as long as the window is open
     while (window.isOpen())
     {
         sf::Event event;
@@ -40,39 +85,14 @@ int main ()
             }
         }
 
-        // Tiny box matrix
-        auto tb_matrix_square = create_matrix_square<Tiny_box, 8>();
-        tb_matrix_square[0]->at(0).tiny_box.setFillColor(sf::Color(100, 250, 50));
-        tb_matrix_square[0]->at(0).tiny_box.setSize({100.f, 100.f});
-
-        tb_matrix_square[0]->at(1).tiny_box.setFillColor(sf::Color(120, 100, 50));
-        tb_matrix_square[0]->at(1).tiny_box.setSize({100.f, 100.f});
-        tb_matrix_square[0]->at(1).tiny_box.setPosition({100.f, 0.f});
-
-        tb_matrix_square[0]->at(2).tiny_box.setFillColor(sf::Color(20, 200, 125));
-        tb_matrix_square[0]->at(2).tiny_box.setSize({100.f, 100.f});
-        tb_matrix_square[0]->at(2).tiny_box.setPosition({200.f, 0.f});
-
-        tb_matrix_square[1]->at(0).tiny_box.setFillColor(sf::Color(70, 159, 50));
-        tb_matrix_square[1]->at(0).tiny_box.setSize({100.f, 100.f});
-        tb_matrix_square[1]->at(0).tiny_box.setPosition({0.f, 100.f});
-
-        tb_matrix_square[1]->at(1).tiny_box.setFillColor(sf::Color(200, 20, 10));
-        tb_matrix_square[1]->at(1).tiny_box.setSize({100.f, 100.f});
-        tb_matrix_square[1]->at(1).tiny_box.setPosition({100.f, 100.f});
-
-        tb_matrix_square[1]->at(2).tiny_box.setFillColor(sf::Color(170, 75, 200));
-        tb_matrix_square[1]->at(2).tiny_box.setSize({100.f, 100.f});
-        tb_matrix_square[1]->at(2).tiny_box.setPosition({200.f, 100.f});
-
         // Render window
         window.clear(sf::Color(255, 255, 255));
-        window.draw(tb_matrix_square[0]->at(0).tiny_box);
-        window.draw(tb_matrix_square[0]->at(1).tiny_box);
-        window.draw(tb_matrix_square[0]->at(2).tiny_box);
-        window.draw(tb_matrix_square[1]->at(0).tiny_box);
-        window.draw(tb_matrix_square[1]->at(1).tiny_box);
-        window.draw(tb_matrix_square[1]->at(2).tiny_box);
+        for (int i = 0; i < Tile_ID; ++i)
+        {
+            window.draw(tile_map[i]->tile[0]->at(0).tiny_box);
+            window.draw(tile_map[i]->tile[0]->at(1).tiny_box);
+            window.draw(tile_map[i]->tile[1]->at(1).tiny_box);
+        }
         window.display();
     }
 
