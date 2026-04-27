@@ -13,6 +13,9 @@
 namespace TTE 
 {
 
+    // Each time a tile is created the Tile_ID is incremented by 1
+    static std::size_t Tile_ID;
+
     // Represents a pixel, color as RGB
     struct Tiny_box
     {
@@ -37,14 +40,12 @@ namespace TTE
         BLACK
     };
 
-    static int Tile_ID;
-
     // Represents an 8 x 8 block of pixels
     struct Tile
     {
         std::vector<std::unique_ptr<std::vector<Tiny_box>>> tile;
         Vec2<float> pos{0, 0};
-        int tile_id = Tile_ID;
+        std::size_t tile_id = Tile_ID;
 
         Tile()
         {
@@ -53,11 +54,11 @@ namespace TTE
         }
     };
 
-    /*
-    // Represents a map of all tiles
-    class Tile_map
+    
+    // Represents a map of multiple tiles
+    struct Tile_map
     {
-        std::vector<Tile> tile_map;
+        std::map<int, std::unique_ptr<Tile>> tile_map;
     };
-    */
+    
 } // End namespace

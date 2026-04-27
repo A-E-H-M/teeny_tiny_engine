@@ -11,7 +11,9 @@ using namespace TTE;
 
 int main ()
 {
-    std::map<int, std::unique_ptr<Tile>> tile_map;
+    //std::map<int, std::unique_ptr<Tile>> tile_map_1.tile_map;
+
+    Tile_map tile_map_1;
 
     // Grid of Vec2 based on 800 X 720 screen size with 40 unit spatial difference
     auto viewport = create_matrix<Vec2<std::size_t>>(20, 18);
@@ -38,21 +40,19 @@ int main ()
             temp_tile->pos.x = temp_spatial_diff_x;
             temp_tile->pos.y = temp_spatial_diff_y;
             int temp_ID = temp_tile->tile_id;
-            tile_map[temp_tile->tile_id] = std::move(temp_tile);
+            tile_map_1.tile_map[temp_tile->tile_id] = std::move(temp_tile);
 
-            //std::cout << "Tile ID: " << temp_ID << "  " << tile_map[temp_ID]->pos.x << '\n';
+            tile_map_1.tile_map[temp_ID]->tile[0]->at(0).tiny_box.setPosition(temp_spatial_diff_x, temp_spatial_diff_y);
+            tile_map_1.tile_map[temp_ID]->tile[0]->at(0).tiny_box.setSize({5.f, 5.f});
+            tile_map_1.tile_map[temp_ID]->tile[0]->at(0).tiny_box.setFillColor(sf::Color(70, 159, 50));
 
-            tile_map[temp_ID]->tile[0]->at(0).tiny_box.setPosition(temp_spatial_diff_x, temp_spatial_diff_y);
-            tile_map[temp_ID]->tile[0]->at(0).tiny_box.setSize({5.f, 5.f});
-            tile_map[temp_ID]->tile[0]->at(0).tiny_box.setFillColor(sf::Color(70, 159, 50));
+            tile_map_1.tile_map[temp_ID]->tile[0]->at(1).tiny_box.setPosition(temp_spatial_diff_x+5, temp_spatial_diff_y);
+            tile_map_1.tile_map[temp_ID]->tile[0]->at(1).tiny_box.setSize({5.f, 5.f});
+            tile_map_1.tile_map[temp_ID]->tile[0]->at(1).tiny_box.setFillColor(sf::Color(200, 75, 130));
 
-            tile_map[temp_ID]->tile[0]->at(1).tiny_box.setPosition(temp_spatial_diff_x+5, temp_spatial_diff_y);
-            tile_map[temp_ID]->tile[0]->at(1).tiny_box.setSize({5.f, 5.f});
-            tile_map[temp_ID]->tile[0]->at(1).tiny_box.setFillColor(sf::Color(200, 75, 130));
-
-            tile_map[temp_ID]->tile[1]->at(1).tiny_box.setPosition(temp_spatial_diff_x, temp_spatial_diff_y+5);
-            tile_map[temp_ID]->tile[1]->at(1).tiny_box.setSize({5.f, 5.f});
-            tile_map[temp_ID]->tile[1]->at(1).tiny_box.setFillColor(sf::Color(20, 10, 180));
+            tile_map_1.tile_map[temp_ID]->tile[1]->at(1).tiny_box.setPosition(temp_spatial_diff_x, temp_spatial_diff_y+5);
+            tile_map_1.tile_map[temp_ID]->tile[1]->at(1).tiny_box.setSize({5.f, 5.f});
+            tile_map_1.tile_map[temp_ID]->tile[1]->at(1).tiny_box.setFillColor(sf::Color(20, 10, 180));
         }
         temp_spatial_diff_x = 0;
     }
@@ -67,7 +67,8 @@ int main ()
         // check all the window's events that were triggered since the last iteration of the loop
         while (window.pollEvent(event))
         {
-            switch (event.type){
+            switch (event.type)
+            {
 				// Close window using the button on the top left of window
 				case sf::Event::Closed:
 					window.close();
@@ -89,9 +90,9 @@ int main ()
         window.clear(sf::Color(255, 255, 255));
         for (int i = 0; i < Tile_ID; ++i)
         {
-            window.draw(tile_map[i]->tile[0]->at(0).tiny_box);
-            window.draw(tile_map[i]->tile[0]->at(1).tiny_box);
-            window.draw(tile_map[i]->tile[1]->at(1).tiny_box);
+            window.draw(tile_map_1.tile_map[i]->tile[0]->at(0).tiny_box);
+            window.draw(tile_map_1.tile_map[i]->tile[0]->at(1).tiny_box);
+            window.draw(tile_map_1.tile_map[i]->tile[1]->at(1).tiny_box);
         }
         window.display();
     }
